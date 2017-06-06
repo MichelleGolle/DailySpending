@@ -22,9 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:onClick="submitNewEntry"
         android:text="@string/submit"
-        tools:layout_editor_absoluteX="136dp"
-        app:layout_constraintTop_toBottomOf="@+id/editNotes"/>
+        app:layout_constraintTop_toBottomOf="@+id/editNotes"
+        tools:layout_editor_absoluteX="136dp" />
 
     <EditText
         android:id="@+id/editAmount"

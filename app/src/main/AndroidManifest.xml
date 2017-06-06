@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewEntryForm"></activity>
+        <activity android:name=".NewEntryForm"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
+
