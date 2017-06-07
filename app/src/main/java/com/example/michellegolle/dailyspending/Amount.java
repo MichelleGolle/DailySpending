@@ -15,9 +15,7 @@ public class Amount {
         this.id = id;
     }
 
-    public String getAmount() {
-        return amount;
-    }
+    public String getAmount() { return amount; }
 
     public void setAmount(String amount) {
         this.amount = amount;
@@ -46,10 +44,4 @@ public class Amount {
     public void setCategory(String category) {
         this.category = category;
     }
-
-    // Will be used by the ArrayAdapter in the ListView
-//    @Override
-//    public String toString() {
-//        return amount;
-//    }
 }

@@ -21,7 +21,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = "create table "
             + TABLE_AMOUNTS + "( " + COLUMN_ID
             + " integer primary key autoincrement, " + COLUMN_AMOUNT
-            + " text not null);";
+            + " text not null, " + COLUMN_DATE
+            + " text, " + COLUMN_CATEGORY
+            + " text, " + COLUMN_NOTE
+            + " text " + ")";
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

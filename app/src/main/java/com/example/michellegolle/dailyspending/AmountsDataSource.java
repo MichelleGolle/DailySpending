@@ -14,7 +14,10 @@ public class AmountsDataSource {
     private SQLiteDatabase database;
     private MySQLiteHelper dbHelper;
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-            MySQLiteHelper.COLUMN_AMOUNT };
+            MySQLiteHelper.COLUMN_AMOUNT,
+            MySQLiteHelper.COLUMN_DATE,
+            MySQLiteHelper.COLUMN_CATEGORY,
+            MySQLiteHelper.COLUMN_NOTE};
 
     public AmountsDataSource(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -28,9 +31,12 @@ public class AmountsDataSource {
         dbHelper.close();
     }
 
-    public Amount createAmount(String amount) {
+    public Amount createAmount(Amount amount) {
         ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMN_AMOUNT, amount);
+        values.put(MySQLiteHelper.COLUMN_AMOUNT, amount.getAmount());
+        values.put(MySQLiteHelper.COLUMN_DATE, amount.getDate());
+        values.put(MySQLiteHelper.COLUMN_NOTE, amount.getNote());
+        values.put(MySQLiteHelper.COLUMN_CATEGORY, amount.getCategory());
         long insertId = database.insert(MySQLiteHelper.TABLE_AMOUNTS, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_AMOUNTS,
@@ -61,15 +67,18 @@ public class AmountsDataSource {
             amounts.add(amount);
             cursor.moveToNext();
         }
-        // make sure to close the cursor
         cursor.close();
         return amounts;
     }
 
     private Amount cursorToAmount(Cursor cursor) {
         Amount amount = new Amount();
-        amount.setId(cursor.getLong(0));
-        amount.setAmount(cursor.getString(1));
+        amount.setId(cursor.getLong(cursor.getColumnIndex("_id")));
+        amount.setAmount(cursor.getString(cursor.getColumnIndex("amount")));
+        amount.setDate(cursor.getString(cursor.getColumnIndex("date")));
+        amount.setNote(cursor.getString(cursor.getColumnIndex("note")));
+        amount.setCategory(cursor.getString(cursor.getColumnIndex("category")));
         return amount;
     }
 }
+
