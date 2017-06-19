@@ -1,17 +1,17 @@
 package com.example.michellegolle.dailyspending;
 
 public class Amount {
-    private long id;
+    private int id;
     private String amount;
     private String date;
     private String note;
     private String category;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -13,5 +13,6 @@
     </string-array>
     <string name="category_prompt">Select Category</string>
     <string name="date_hint">Date</string>
+    <string name="month_view_button">View Entire Month</string>
 
 </resources>

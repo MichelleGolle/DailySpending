@@ -51,4 +51,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NewEntryForm.class);
         startActivity(intent);
     }
+
+    public void displayMonthView(View view) {
+        Intent intent = new Intent(this, DisplayMonthActivity.class);
+        startActivity(intent);
+    }
 }

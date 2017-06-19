@@ -49,7 +49,7 @@ public class AmountsDataSource {
     }
 
     public void deleteAmount(Amount amount) {
-        long id = amount.getId();
+        int id = amount.getId();
         System.out.println("Amount deleted with id: " + id);
         database.delete(MySQLiteHelper.TABLE_AMOUNTS, MySQLiteHelper.COLUMN_ID
                 + " = " + id, null);
@@ -73,7 +73,7 @@ public class AmountsDataSource {
 
     private Amount cursorToAmount(Cursor cursor) {
         Amount amount = new Amount();
-        amount.setId(cursor.getLong(cursor.getColumnIndex("_id")));
+        amount.setId(cursor.getInt(cursor.getColumnIndex("_id")));
         amount.setAmount(cursor.getString(cursor.getColumnIndex("amount")));
         amount.setDate(cursor.getString(cursor.getColumnIndex("date")));
         amount.setNote(cursor.getString(cursor.getColumnIndex("note")));

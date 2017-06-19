@@ -40,5 +40,4 @@ public class AmountUnitTest {
         amount.setCategory("food");
         assertEquals(amount.getCategory(), "food");
     }
-
 }
