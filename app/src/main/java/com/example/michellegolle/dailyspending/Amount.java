@@ -1,5 +1,8 @@
 package com.example.michellegolle.dailyspending;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class Amount {
     private int id;
     private String amount;
@@ -44,4 +47,10 @@ public class Amount {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    //return true if date is this month WIP
+//    public boolean isCurrentMonth() {
+        //need to decide what format date should come in as in new entry form before using dateformat parser
+//    }
 }
+
